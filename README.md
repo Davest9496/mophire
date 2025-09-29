@@ -1,2 +1,1 @@
-# mophire
-London based cleaning company
+A Lonodon based cleaning business

@@ -1,0 +1,40 @@
+{
+  "name": "mophire",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build --turbopack",
+    "start": "next start",
+    "lint": "eslint",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "next": "15.5.4",
+    "next-seo": "^6.8.0",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "sharp": "^0.34.4",
+    "tailwind-merge": "^3.3.1"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19.1.15",
+    "@types/react-dom": "^19.1.9",
+    "@typescript-eslint/eslint-plugin": "^8.44.1",
+    "@typescript-eslint/parser": "^8.44.1",
+    "eslint": "^9",
+    "eslint-config-next": "^15.5.4",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-import-x": "^4.16.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.3",
+    "prettier": "^3.6.2",
+    "prettier-plugin-tailwindcss": "^0.6.14",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
