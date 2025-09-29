@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { beVietnam, roboto } from "./fonts";
+import Header from "@/components/layout/Header";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://mophire.com"),
@@ -31,8 +32,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>): React.ReactElement {
   return (
-    <html lang="en" className={`${beVietnam.variable} ${roboto.variable}`}>
-      <body className="font-body antialiased">{children}</body>
+    <html lang="en-GB" className={`${beVietnam.variable} ${roboto.variable}`}>
+      <body className="font-body antialiased">
+        <Header />
+        <main className="pt-32">{children}</main>
+      </body>
     </html>
   );
 }

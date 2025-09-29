@@ -21,3 +21,12 @@ export interface ContactForm {
   service: string;
   message: string;
 }
+
+export interface NavLink {
+  label: string;
+  href: string;
+}
+
+export interface HeaderProps {
+  className?: string;
+}
