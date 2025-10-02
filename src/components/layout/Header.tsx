@@ -12,6 +12,7 @@ import {
   Search,
   Menu,
   X,
+  ArrowRight,
 } from "lucide-react";
 
 interface NavLink {
@@ -77,13 +78,13 @@ export default function Header(): React.ReactElement {
                   height={20}
                   className="w-3 h-5 sm:w-4 sm:h-5 flex-shrink-0"
                 />
-                <span className="text-xs sm:text-sm whitespace-nowrap border-r pr-8">
+                <span className="text-xs sm:text-sm whitespace-nowrap">
                   London - UK 🇬🇧
                 </span>
               </div>
-              <a
+              <Link
                 href="mailto:info@mophire.com"
-                className="flex items-center gap-2 hover:underline"
+                className="hidden md:flex border-l pl-8 items-center gap-2 hover:underline"
               >
                 <Image
                   src="/assets/header_footer/icons/mail.png"
@@ -95,7 +96,7 @@ export default function Header(): React.ReactElement {
                 <span className="text-xs sm:text-sm whitespace-nowrap">
                   Email: info@mophire.com
                 </span>
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -186,7 +187,7 @@ export default function Header(): React.ReactElement {
                     className="bg-[#008080] text-white px-4 xl:px-6 py-2 xl:py-2.5 hover:bg-[#006666] transition-colors duration-200 font-medium flex items-center gap-2 text-sm xl:text-base whitespace-nowrap"
                   >
                     FREE QUOTE
-                    <span className="text-base xl:text-lg">→</span>
+                    <ArrowRight className="h-5 w-5" />
                   </Link>
                 </div>
 
@@ -267,12 +268,12 @@ export default function Header(): React.ReactElement {
             {/* Mobile Email (visible on mobile only) */}
             <div className="md:hidden flex items-center gap-2 pt-4 border-t border-gray-200">
               <Mail className="w-4 h-4 text-[#153C78]" />
-              <a
+              <Link
                 href="mailto:info@mophire.com"
                 className="text-[#153C78] hover:text-[#008080] text-sm"
               >
                 info@mophire.com
-              </a>
+              </Link>
             </div>
 
             {/* Mobile CTA */}
@@ -280,7 +281,10 @@ export default function Header(): React.ReactElement {
               href="/quote"
               className="block bg-[#008080] text-white px-6 py-3 hover:bg-[#006666] transition-colors duration-200 font-medium text-center mt-4"
             >
-              FREE QUOTE →
+              <span className="inline-block align-middle mr-2">FREE QUOTE</span>
+              <span className="inline-block align-middle">
+                <ArrowRight className="h-5 w-5" />
+              </span>
             </Link>
           </nav>
         </div>
