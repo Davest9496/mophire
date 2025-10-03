@@ -25,7 +25,7 @@ const services: Service[] = [
     id: "office",
     title: "Housekeeping",
     description:
-      "Professional cleaning services for homes and residential properties, ensuring a clean and healthy living environment.",
+      "Professional cleaning services for homes and residential properties, ensuring a clean and healthy living space and environment.",
     image: "/assets/pages/homepage/images/service1.png",
     icon: "housekeeping",
     href: "/services/housekeeping",

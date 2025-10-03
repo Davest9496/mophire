@@ -11,7 +11,8 @@ export interface Testimonial {
   name: string;
   content: string;
   rating: number;
-  date: string;
+  role: string;
+  location: string;
 }
 
 export interface ContactForm {
