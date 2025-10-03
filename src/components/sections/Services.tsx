@@ -105,7 +105,7 @@ function ServiceCard({ service }: ServiceCardProps): React.ReactElement {
     <article className="group bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:bg-[#0066D0]">
       {/* Icon & Title */}
       <div className="p-6 pb-4">
-        <div className="flex items-start gap-4 mb-4">
+        <div className="flex items-center gap-4 mb-4">
           <div
             className="relative w-12 h-12 flex-shrink-0 bg-[#008080] group-hover:bg-white transition-colors duration-300"
             style={{
