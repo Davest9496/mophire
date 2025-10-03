@@ -13,6 +13,7 @@ const config: Config = {
           teal: "#008080",
           blue: "#4682B4",
           navy: "#102A43",
+          darkBlue: "#153C78",
         },
         primary: "#008080",
         secondary: "#4682B4",
