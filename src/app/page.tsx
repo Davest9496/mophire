@@ -3,6 +3,7 @@ import { Hero } from "@/components/sections/Hero";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import Services from "@/components/sections/Services";
 import Testimonials from "@/components/sections/Testimonials";
+import CTASection from "@/components/sections/CTAsection";
 
 export const metadata: Metadata = {
   title: "Mophire - Professional Cleaning Services in London",
@@ -17,6 +18,7 @@ export default function Home() {
       <WhyChooseUs />
       <Services />
       <Testimonials />
+      <CTASection />
       {/* Additional sections will go here */}
     </>
   );

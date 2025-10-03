@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { beVietnam, roboto } from "./fonts";
 import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import Copyright from "@/components/layout/Copyright";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://mophire.com"),
@@ -36,6 +38,8 @@ export default function RootLayout({
       <body className="font-body antialiased">
         <Header />
         <main className="pt-32">{children}</main>
+        <Footer />
+        <Copyright />
       </body>
     </html>
   );
