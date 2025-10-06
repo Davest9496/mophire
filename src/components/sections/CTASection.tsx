@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { CTASectionProps } from "@/lib/types";
+import type { CTASectionProps } from "../../lib/types";
 
 export default function CTASection({
   title,
