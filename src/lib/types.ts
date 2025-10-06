@@ -42,3 +42,12 @@ export interface PageHeroProps {
   breadcrumbs?: Breadcrumb[];
   backgroundImage?: string;
 }
+
+export interface CTASectionProps {
+  title: string;
+  description?: string;
+  buttonText?: string;
+  buttonHref?: string;
+  backgroundImage?: string;
+  variant?: "default" | "detailed";
+}
