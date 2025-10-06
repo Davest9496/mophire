@@ -31,3 +31,14 @@ export interface NavLink {
 export interface HeaderProps {
   className?: string;
 }
+
+export interface Breadcrumb {
+  label: string;
+  href: string;
+}
+
+export interface PageHeroProps {
+  title: string;
+  breadcrumbs?: Breadcrumb[];
+  backgroundImage?: string;
+}
