@@ -26,12 +26,15 @@ export default function PageHero({
       {/* Content */}
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-4">
         {/* Page Title */}
-        <h1 className="mb-4 font-display text-4xl font-bold text-white md:text-5xl">
+        <h1 className="mb-4 font-display text-2xl font-bold text-white md:text-4xl">
           {title}
         </h1>
 
         {/* Breadcrumb Navigation */}
-        <nav aria-label="Breadcrumb">
+        <nav
+          aria-label="Breadcrumb"
+          className="uppercase bg-white/10 px-4 py-2 backdrop-blur-sm"
+        >
           <ol className="flex items-center gap-2 text-sm text-white/90">
             {breadcrumbs.map((crumb, index) => {
               const isLast = index === breadcrumbs.length - 1;

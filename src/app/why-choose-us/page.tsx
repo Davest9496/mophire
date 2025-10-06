@@ -1,20 +1,20 @@
 import CTASection from "@/components/sections/CTASection";
 import PageHero from "@/components/sections/PageHero";
-import Services from "@/components/sections/Services";
+import Testimonials from "@/components/sections/Testimonials";
 import { ctaContent } from "@/lib/data/ctaContent";
 
-export default function AboutPage(): React.ReactElement {
+export default function WhyChooseUsPage(): React.ReactElement {
   return (
     <>
       <PageHero
-        title="About Us"
+        title="Why Choose Us"
         breadcrumbs={[
           { label: "Home", href: "/" },
-          { label: "About Us", href: "/about" },
+          { label: "Why Choose Us", href: "/why-choose-us" },
         ]}
       />
-      <Services />
-      <CTASection {...ctaContent.about} />
+      <Testimonials variant="transparent" />
+      <CTASection {...ctaContent.whyChooseUs} />
       {/* Rest of page content */}
     </>
   );

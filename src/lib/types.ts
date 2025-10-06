@@ -51,3 +51,8 @@ export interface CTASectionProps {
   backgroundImage?: string;
   variant?: "default" | "detailed";
 }
+
+export interface TestimonialsProps {
+  variant?: "with-bg" | "transparent";
+  backgroundImage?: string;
+}

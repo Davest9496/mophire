@@ -3,9 +3,11 @@ import type { CTASectionProps } from "@/lib/types";
 export const ctaContent = {
   home: {
     title: "Ready For A Spotless Space?",
+    description:
+      "Contact Mophire today for a free, no-obligation quote and discover how our professional cleaning services can transform your home or business.",
     buttonText: "FREE QUOTE",
     buttonHref: "/quote",
-    variant: "default",
+    variant: "detailed",
   },
   whyChooseUs: {
     title: "Experience The Mophire Difference Today",
@@ -23,7 +25,7 @@ export const ctaContent = {
     variant: "detailed",
   },
   about: {
-    title: "Ready To Work With London's Best?",
+    title: "Ready to Experience the Mophire Difference?",
     description: "Get in touch today and discover the Mophire difference.",
     buttonText: "CONTACT US",
     buttonHref: "/contact",

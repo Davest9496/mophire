@@ -1,17 +1,15 @@
 import PageHero from "@/components/sections/PageHero";
-import Services from "@/components/sections/Services";
 
-export default function ServicesPage(): React.ReactElement {
+export default function FreeQuotePage(): React.ReactElement {
   return (
     <>
       <PageHero
-        title="Services"
+        title="Frequently Asked Questions"
         breadcrumbs={[
           { label: "Home", href: "/" },
-          { label: "Services", href: "/services" },
+          { label: "Frequently Asked Questions", href: "/faq" },
         ]}
       />
-      <Services />
       {/* Rest of page content */}
     </>
   );

@@ -43,14 +43,14 @@ export default function Footer(): React.ReactElement {
       {/* Content */}
       <div className="relative text-white">
         <div className="mx-auto max-w-7xl lg:px-27">
-          {/* 4 Column Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-            {/* Column 1: Mophire Brand + Service Area */}
-            <div className="space-y-6 bg-[#153C78] pb-16 text-center sm:text-left">
+          {/* Mobile/Tablet Layout */}
+          <div className="grid grid-cols-2 lg:hidden">
+            {/* Column 1: Mophire Brand - Full width */}
+            <div className="col-span-2 space-y-6 bg-[#153C78] pb-16 text-center sm:text-left">
               {/* Logo with Blue Background */}
               <div className="mb-8 inline-block bg-[#0066D0] px-6 py-4">
                 <Image
-                  src="/assets/header_footer/images/mophire_white 1.png"
+                  src="/assets/header_footer/images/mophire_white.svg"
                   alt="Mophire"
                   width={180}
                   height={60}
@@ -134,7 +134,7 @@ export default function Footer(): React.ReactElement {
             </div>
 
             {/* Column 2: Quick Links */}
-            <div className="px-6 py-16 text-center sm:text-left">
+            <div className="col-span-1 px-6 py-8 text-left sm:px-6 sm:py-16">
               <h3 className="mb-6 text-lg font-semibold">Quick Links</h3>
               <ul className="space-y-3">
                 {quickLinks.map((link) => (
@@ -143,7 +143,8 @@ export default function Footer(): React.ReactElement {
                       href={link.href}
                       className="inline-block text-sm transition-colors hover:text-primary"
                     >
-                      &gt; {link.label}
+                      {"> "}
+                      {link.label}
                     </Link>
                   </li>
                 ))}
@@ -151,24 +152,25 @@ export default function Footer(): React.ReactElement {
             </div>
 
             {/* Column 3: Our Services */}
-            <div className="px-6 py-16 text-center sm:text-left">
+            <div className="col-span-1 px-2 py-8 text-left sm:px-6 sm:py-16">
               <h3 className="mb-6 text-lg font-semibold">Our Services</h3>
               <ul className="space-y-3">
                 {serviceLinks.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="inline-block text-sm  transition-colors hover:text-primary"
+                      className="inline-block text-sm transition-colors hover:text-primary"
                     >
-                      &gt; {link.label}
+                      {"> "}
+                      {link.label}
                     </Link>
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* Column 4: Instagram - Full width on mobile */}
-            <div className="col-span-1 px-6 py-16 text-center sm:col-span-2 sm:text-left lg:col-span-1">
+            {/* Column 4: Instagram */}
+            <div className="col-span-2 px-6 py-16 text-center sm:text-left">
               <h3 className="mb-6 text-lg font-semibold">Instagram</h3>
               <div className="grid grid-cols-3 gap-3">
                 {instagramImages.map((img) => (
@@ -186,11 +188,159 @@ export default function Footer(): React.ReactElement {
                       className="object-cover transition-transform duration-300 group-hover:scale-110"
                       sizes="(max-width: 640px) 33vw, (max-width: 1024px) 16vw, 100px"
                     />
-                    {/* Instagram overlay on hover */}
                     <div className="absolute inset-0 flex items-center justify-center bg-primary/0 transition-all duration-300 group-hover:bg-primary/70">
                       <Instagram className="h-6 w-6 translate-y-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100" />
                     </div>
                   </a>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Desktop Layout */}
+          <div className="hidden grid-cols-4 lg:grid">
+            {/* Column 1: Mophire Brand */}
+            <div className="space-y-6 bg-[#153C78] pb-16 text-left">
+              <div className="mb-8 inline-block bg-[#0066D0] px-6 py-4">
+                <Image
+                  src="/assets/header_footer/images/mophire_white 1.png"
+                  alt="Mophire"
+                  width={180}
+                  height={60}
+                  className="h-[40px] w-auto object-contain xl:h-[60px]"
+                />
+              </div>
+
+              <div className="px-10">
+                <h3 className="mb-3 text-sm font-medium tracking-wide">
+                  Service Area
+                </h3>
+                <p className="text-sm font-normal">London Area</p>
+              </div>
+
+              <div className="px-10">
+                <h3 className="mb-3 text-sm font-medium tracking-wide">
+                  Email Us
+                </h3>
+                <Link
+                  href="mailto:info@mophire.com"
+                  className="text-sm font-normal transition-colors hover:text-primary"
+                >
+                  info@mophire.com
+                </Link>
+              </div>
+
+              <div className="px-10">
+                <h3 className="mb-3 text-sm font-medium tracking-wide">
+                  Response Time
+                </h3>
+                <p className="text-sm font-normal">Within 24 hours</p>
+              </div>
+
+              <div className="px-10">
+                <h3 className="mb-4 text-sm font-medium tracking-wide">
+                  Following
+                </h3>
+                <div className="flex gap-4">
+                  <Link
+                    href="https://facebook.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition-colors hover:text-primary"
+                    aria-label="Facebook"
+                  >
+                    <Facebook className="h-5 w-5" />
+                  </Link>
+                  <Link
+                    href="https://twitter.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition-colors hover:text-primary"
+                    aria-label="Twitter"
+                  >
+                    <Twitter className="h-5 w-5" />
+                  </Link>
+                  <Link
+                    href="https://instagram.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition-colors hover:text-primary"
+                    aria-label="Instagram"
+                  >
+                    <Instagram className="h-5 w-5" />
+                  </Link>
+                  <Link
+                    href="https://linkedin.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition-colors hover:text-primary"
+                    aria-label="LinkedIn"
+                  >
+                    <Linkedin className="h-5 w-5" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Column 2: Quick Links */}
+            <div className="px-6 py-16 text-left">
+              <h3 className="mb-6 text-lg font-semibold">Quick Links</h3>
+              <ul className="space-y-3">
+                {quickLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="inline-block text-sm transition-colors hover:text-primary"
+                    >
+                      {"> "}
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Column 3: Our Services */}
+            <div className="px-6 py-16 text-left">
+              <h3 className="mb-6 text-lg font-semibold">Our Services</h3>
+              <ul className="space-y-3">
+                {serviceLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="inline-block text-sm transition-colors hover:text-primary"
+                    >
+                      {"> "}
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Column 4: Instagram */}
+            <div className="px-6 py-16 text-left">
+              <h3 className="mb-6 text-lg font-semibold">Instagram</h3>
+              <div className="grid grid-cols-3 gap-3">
+                {instagramImages.map((img) => (
+                  <Link
+                    key={img}
+                    href="https://instagram.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative aspect-square overflow-hidden"
+                  >
+                    <Image
+                      src={`/assets/header_footer/images/${img}.png`}
+                      alt={`Instagram post ${img}`}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-110"
+                      sizes="(max-width: 1024px) 16vw, 100px"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center bg-primary/0 transition-all duration-300 group-hover:bg-primary/70">
+                      <Instagram className="h-6 w-6 translate-y-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100" />
+                    </div>
+                  </Link>
                 ))}
               </div>
             </div>

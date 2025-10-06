@@ -28,18 +28,15 @@ export default function CTASection({
         quality={90}
       />
 
-      {/* Overlay - optional, remove if not needed */}
-      <div className="absolute inset-0 bg-brand-blue/10" />
-
       {/* Content */}
-      <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col items-center justify-center gap-6 px-6 text-center md:flex-row md:justify-between md:gap-8 md:text-left lg:px-8">
+      <div className="relative z-10 mx-auto flex h-full max-w-7xl lg:px-27 flex-col items-center justify-center gap-6 px-6  md:flex-row md:justify-between md:gap-8 text-left">
         {/* Text Content */}
         <div className="max-w-3xl">
-          <h2 className="mb-3 text-2xl font-bold text-white md:mb-4 md:text-3xl lg:text-4xl">
+          <h2 className="mb-3 text-xl font-bold text-white md:mb-4 md:text-2xl lg:text-3xl">
             {title}
           </h2>
           {description && (
-            <p className="text-sm text-white/90 md:text-base lg:text-lg">
+            <p className="text-sm text-white/90 md:text-base lg:text-md lg:pr-6">
               {description}
             </p>
           )}
