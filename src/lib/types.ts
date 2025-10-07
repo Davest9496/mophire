@@ -56,3 +56,19 @@ export interface TestimonialsProps {
   variant?: "with-bg" | "transparent";
   backgroundImage?: string;
 }
+
+export interface ServicePageData {
+  slug: string;
+  title: string;
+  description: string;
+  icon: string;
+  image: string;
+  metaDescription: string;
+  ctaContent: {
+    title: string;
+    description: string;
+    buttonText: string;
+    buttonHref: string;
+    variant: "default" | "detailed";
+  };
+}

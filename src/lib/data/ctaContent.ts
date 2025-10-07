@@ -31,4 +31,28 @@ export const ctaContent = {
     buttonHref: "/contact",
     variant: "detailed",
   },
+  tenancyCleaning: {
+    title: "Need End of Tenancy Cleaning?",
+    description:
+      "Ensure a smooth move-out with Mophire's expert end of tenancy cleaning services. Get your full deposit back with our comprehensive cleaning solutions.",
+    buttonText: "FREE QUOTE",
+    buttonHref: "/quote",
+    variant: "detailed",
+  },
+  housekeeping: {
+    title: "Professional Housekeeping Services",
+    description:
+      "Maintain a spotless and healthy living environment with Mophire's expert housekeeping services. Book your service today for a cleaner home.",
+    buttonText: "BOOK NOW",
+    buttonHref: "/contact",
+    variant: "detailed",
+  },
+  commercialCleaning: {
+    title: "Expert Commercial Cleaning",
+    description:
+      "Impress clients and boost productivity with Mophire's professional commercial cleaning services. Contact us today for a free quote.",
+    buttonText: "FREE QUOTE",
+    buttonHref: "/quote",
+    variant: "detailed",
+  },
 } as const satisfies Record<string, CTASectionProps>;

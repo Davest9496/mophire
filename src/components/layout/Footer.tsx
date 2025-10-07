@@ -71,12 +71,12 @@ export default function Footer(): React.ReactElement {
                 <h3 className="mb-3 text-sm font-medium tracking-wide">
                   Email Us
                 </h3>
-                <a
+                <Link
                   href="mailto:info@mophire.com"
                   className="text-sm font-normal transition-colors hover:text-primary"
                 >
                   info@mophire.com
-                </a>
+                </Link>
               </div>
 
               {/* Response Time */}
@@ -93,7 +93,7 @@ export default function Footer(): React.ReactElement {
                   Following
                 </h3>
                 <div className="flex justify-center gap-4 sm:justify-start">
-                  <a
+                  <Link
                     href="https://facebook.com"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -101,8 +101,8 @@ export default function Footer(): React.ReactElement {
                     aria-label="Facebook"
                   >
                     <Facebook className="h-5 w-5" />
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     href="https://twitter.com"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -110,8 +110,8 @@ export default function Footer(): React.ReactElement {
                     aria-label="Twitter"
                   >
                     <Twitter className="h-5 w-5" />
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     href="https://instagram.com"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -119,8 +119,8 @@ export default function Footer(): React.ReactElement {
                     aria-label="Instagram"
                   >
                     <Instagram className="h-5 w-5" />
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     href="https://linkedin.com"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -128,7 +128,7 @@ export default function Footer(): React.ReactElement {
                     aria-label="LinkedIn"
                   >
                     <Linkedin className="h-5 w-5" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -174,7 +174,7 @@ export default function Footer(): React.ReactElement {
               <h3 className="mb-6 text-lg font-semibold">Instagram</h3>
               <div className="grid grid-cols-3 gap-3">
                 {instagramImages.map((img) => (
-                  <a
+                  <Link
                     key={img}
                     href="https://instagram.com"
                     target="_blank"
@@ -191,7 +191,7 @@ export default function Footer(): React.ReactElement {
                     <div className="absolute inset-0 flex items-center justify-center bg-primary/0 transition-all duration-300 group-hover:bg-primary/70">
                       <Instagram className="h-6 w-6 translate-y-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100" />
                     </div>
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -203,7 +203,7 @@ export default function Footer(): React.ReactElement {
             <div className="space-y-6 bg-[#153C78] pb-16 text-left">
               <div className="mb-8 inline-block bg-[#0066D0] px-6 py-4">
                 <Image
-                  src="/assets/header_footer/images/mophire_white 1.png"
+                  src="/assets/header_footer/images/mophire_white.svg"
                   alt="Mophire"
                   width={180}
                   height={60}
