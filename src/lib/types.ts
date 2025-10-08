@@ -93,3 +93,17 @@ export interface ContactMessageForm {
   email: string;
   message: string;
 }
+
+export interface QuoteForm {
+  fullName: string;
+  email: string;
+  phone: string;
+  service: string;
+  message: string;
+}
+
+export type ServiceType =
+  | "end-of-tenancy"
+  | "housekeeping"
+  | "office-commercial"
+  | "";

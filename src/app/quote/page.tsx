@@ -1,4 +1,6 @@
+import GetQuote from "@/components/sections/GetQoute";
 import PageHero from "@/components/sections/PageHero";
+import Testimonials from "@/components/sections/Testimonials";
 
 export default function FreeQuotePage(): React.ReactElement {
   return (
@@ -10,7 +12,8 @@ export default function FreeQuotePage(): React.ReactElement {
           { label: "Request A Quote", href: "/quote" },
         ]}
       />
-      {/* Rest of page content */}
+      <GetQuote />
+      <Testimonials variant="transparent" />
     </>
   );
 }

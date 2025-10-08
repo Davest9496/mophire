@@ -3,12 +3,21 @@
 import Image from "next/image";
 import { useState } from "react";
 
-import type { ContactMessageForm } from "@/lib/types";
+import type { QuoteForm } from "@/lib/types";
 
-export default function ContactMessage(): React.ReactElement {
-  const [formData, setFormData] = useState<ContactMessageForm>({
+const serviceOptions = [
+  { value: "", label: "Select a Cleaning Service" },
+  { value: "end-of-tenancy", label: "End of Tenancy Cleaning" },
+  { value: "housekeeping", label: "Housekeeping" },
+  { value: "office-commercial", label: "Office/Commercial Cleaning" },
+];
+
+export default function GetQuote(): React.ReactElement {
+  const [formData, setFormData] = useState<QuoteForm>({
     fullName: "",
     email: "",
+    phone: "",
+    service: "",
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -17,7 +26,9 @@ export default function ContactMessage(): React.ReactElement {
   >("idle");
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
   ): void => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -37,13 +48,15 @@ export default function ContactMessage(): React.ReactElement {
       // TODO: Replace with actual API call
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
-      console.log("Form submitted:", formData);
+      console.log("Quote form submitted:", formData);
       setSubmitStatus("success");
 
       // Reset form on success
       setFormData({
         fullName: "",
         email: "",
+        phone: "",
+        service: "",
         message: "",
       });
     } catch (error) {
@@ -69,18 +82,21 @@ export default function ContactMessage(): React.ReactElement {
                 className="h-6 w-6"
               />
               <p className="text-sm font-medium uppercase tracking-wider text-[#008080]">
-                Send Message
+                Get A Quote
               </p>
             </div>
             <h2 className="font-display text-3xl font-bold text-[#153C78] sm:text-4xl">
-              Have Any Specific Query?
+              Get Your Free Cleaning Quote
             </h2>
-            <p className="mt-2 text-sm text-gray-600">Just Send A Message</p>
+            <p className="mt-2 text-sm text-gray-600">
+              Tell us what you need, and we&apos;ll send you a personalised
+              quote within 24 hours
+            </p>
           </div>
 
           {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Name and Email Row - Side by side on large screens */}
+            {/* Name and Email Row */}
             <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
               {/* Full Name Input */}
               <div className="relative">
@@ -127,6 +143,61 @@ export default function ContactMessage(): React.ReactElement {
               </div>
             </div>
 
+            {/* Phone and Service Row */}
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+              {/* Phone Input */}
+              <div className="relative">
+                <div className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2">
+                  <Image
+                    src="/assets/pages/contact/icons/phone.svg"
+                    alt=""
+                    width={20}
+                    height={20}
+                    className="h-5 w-5 text-gray-400"
+                  />
+                </div>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  placeholder="Phone Number"
+                  required
+                  className="w-full border border-gray-300 bg-white py-4 pl-12 pr-4 text-gray-900 placeholder-gray-500 transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                />
+              </div>
+
+              {/* Service Select */}
+              <div className="relative">
+                <div className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2">
+                  <Image
+                    src="/assets/pages/contact/icons/down-arrow.svg"
+                    alt=""
+                    width={16}
+                    height={16}
+                    className="h-4 w-4 text-gray-400"
+                  />
+                </div>
+                <select
+                  name="service"
+                  value={formData.service}
+                  onChange={handleChange}
+                  required
+                  className="w-full appearance-none border border-gray-300 bg-white py-4 pl-4 pr-12 text-gray-900 transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                >
+                  {serviceOptions.map((option) => (
+                    <option
+                      key={option.value}
+                      value={option.value}
+                      disabled={option.value === ""}
+                    >
+                      {option.label}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
             {/* Message Textarea */}
             <div className="relative">
               <div className="pointer-events-none absolute left-4 top-4">
@@ -142,7 +213,7 @@ export default function ContactMessage(): React.ReactElement {
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                placeholder="Write Your Comments"
+                placeholder="Tell us about your cleaning requirements. For larger service, include property size, number of rooms, preferred date, and any special needs."
                 required
                 rows={6}
                 className="w-full resize-none border border-gray-300 bg-white py-4 pl-12 pr-4 text-gray-900 placeholder-gray-500 transition-colors focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
@@ -156,7 +227,7 @@ export default function ContactMessage(): React.ReactElement {
                 disabled={isSubmitting}
                 className="inline-flex items-center gap-2 bg-[#008080] px-8 py-4 font-semibold uppercase text-white transition-all hover:bg-[#008080]/90 focus:outline-none focus:ring-4 focus:ring-[#008080]/20 disabled:cursor-not-allowed disabled:opacity-60"
               >
-                {isSubmitting ? "Sending..." : "Send Message"}
+                {isSubmitting ? "Submitting..." : "Get My Free Quote"}
                 {!isSubmitting && (
                   <Image
                     src="/assets/pages/contact/icons/right-arrow.svg"
@@ -172,12 +243,13 @@ export default function ContactMessage(): React.ReactElement {
             {/* Status Messages */}
             {submitStatus === "success" && (
               <div className="bg-green-50 p-4 text-center text-green-800">
-                Message sent successfully! We&apos;ll get back to you soon.
+                Quote request received! We&apos;ll send you a personalised quote
+                within 24 hours.
               </div>
             )}
             {submitStatus === "error" && (
               <div className="bg-red-50 p-4 text-center text-red-800">
-                Failed to send message. Please try again.
+                Failed to submit request. Please try again.
               </div>
             )}
           </form>

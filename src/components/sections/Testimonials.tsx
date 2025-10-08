@@ -31,79 +31,31 @@ export default function Testimonials({
   // Transparent variant - full width, no side image
   if (variant === "transparent") {
     return (
-      <section className="relative w-full overflow-hidden bg-gray-50 py-16 sm:py-20 lg:py-24">
-        <div className="mx-auto w-full max-w-7xl px-4 sm:px-8 lg:px-12">
-          {/* Header Section */}
-          <div className="mb-8 flex w-full flex-col gap-4 lg:mb-12">
-            {/* Header Row */}
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-              <div className="flex items-center gap-3">
-                <Image
-                  src="/assets/pages/services/images/client_feedback.svg"
-                  alt=""
-                  width={32}
-                  height={32}
-                  className="sm:h-8 sm:w-8"
-                />
-                <h2 className="text-base font-medium uppercase tracking-wider text-[#008080] sm:text-md">
-                  clients feedback
-                </h2>
-              </div>
-
-              {/* Navigation Buttons - Hidden on mobile */}
-              <div className="hidden gap-3 sm:flex">
-                <button
-                  onClick={handlePrevious}
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-[#153C78]/10 transition-colors hover:bg-[#153C78]/20"
-                  aria-label="Previous testimonial"
-                >
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M12.5 15L7.5 10L12.5 5"
-                      stroke="#153C78"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </button>
-                <button
-                  onClick={handleNext}
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-[#153C78]/10 transition-colors hover:bg-[#153C78]/20"
-                  aria-label="Next testimonial"
-                >
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M7.5 15L12.5 10L7.5 5"
-                      stroke="#153C78"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </button>
-              </div>
+      <section className="relative w-full overflow-hidden bg-gray-100 py-16 sm:py-20 lg:py-24">
+        <div className="mx-auto w-full max-w-7xl px-4 sm:px-8 lg:px-28">
+          {/* Header Section - Centered */}
+          <div className="mb-8 flex w-full flex-col items-center gap-4 lg:mb-12">
+            {/* Header Row - Centered */}
+            <div className="flex items-center gap-3">
+              <Image
+                src="/assets/pages/services/images/client_feedback.svg"
+                alt=""
+                width={32}
+                height={32}
+                className="sm:h-8 sm:w-8"
+              />
+              <h2 className="text-base font-medium uppercase tracking-wider text-[#008080] sm:text-md">
+                clients feedback
+              </h2>
             </div>
 
-            {/* Title */}
-            <h3 className="w-full text-2xl font-bold text-[#153C78] sm:text-3xl lg:text-4xl">
-              Why Customers Love Mophire
+            {/* Title - Centered */}
+            <h3 className="w-full text-center text-2xl font-bold text-[#153C78] sm:text-3xl lg:text-4xl">
+              Why Customers Love <br /> Mophire
             </h3>
 
-            {/* Navigation Buttons - Below heading on mobile only */}
-            <div className="flex gap-3 sm:hidden">
+            {/* Navigation Buttons - Centered, always visible */}
+            <div className="flex gap-3">
               <button
                 onClick={handlePrevious}
                 className="flex h-10 w-10 items-center justify-center rounded-full bg-[#153C78]/10 transition-colors hover:bg-[#153C78]/20"
