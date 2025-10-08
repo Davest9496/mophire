@@ -57,18 +57,27 @@ export interface TestimonialsProps {
   backgroundImage?: string;
 }
 
+export interface ServiceDetailProps {
+  title: string;
+  description: string;
+  image: string;
+  features?: string[];
+}
+
 export interface ServicePageData {
   slug: string;
   title: string;
   description: string;
   icon: string;
-  image: string;
+  image1: string;
+  image2: string;
+  image3: string;
   metaDescription: string;
-  ctaContent: {
-    title: string;
-    description: string;
-    buttonText: string;
-    buttonHref: string;
-    variant: "default" | "detailed";
-  };
+  ctaContent: CTASectionProps;
+  features?: string[];
+}
+export interface ServiceFeaturesProps {
+  features: string[];
+  image2: string;
+  image3: string;
 }
