@@ -1,3 +1,5 @@
+import ContactInfo from "@/components/sections/ContactInfo";
+import ContactMessage from "@/components/sections/ContactMessage";
 import PageHero from "@/components/sections/PageHero";
 
 export default function ContactPage(): React.ReactElement {
@@ -10,7 +12,8 @@ export default function ContactPage(): React.ReactElement {
           { label: "Contact", href: "/contact" },
         ]}
       />
-      {/* Rest of page content */}
+      <ContactInfo />
+      <ContactMessage />
     </>
   );
 }

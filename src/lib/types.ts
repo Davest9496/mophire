@@ -81,3 +81,15 @@ export interface ServiceFeaturesProps {
   image2: string;
   image3: string;
 }
+export interface ContactInfoItem {
+  icon: string;
+  label: string;
+  value: string;
+  altText: string;
+}
+
+export interface ContactMessageForm {
+  fullName: string;
+  email: string;
+  message: string;
+}
