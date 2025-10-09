@@ -107,3 +107,13 @@ export type ServiceType =
   | "housekeeping"
   | "office-commercial"
   | "";
+
+export interface FAQItem {
+  id: string;
+  question: string;
+  answer: string;
+}
+
+export interface FAQAccordionProps {
+  items: FAQItem[];
+}
