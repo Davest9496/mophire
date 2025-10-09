@@ -23,7 +23,7 @@ export default function FAQAccordion({
   );
 
   return (
-    <section className="mx-auto w-full max-w-7xl px-4 lg:px-28 py-12 sm:px-6 lg:py-16">
+    <section className="mx-auto w-full max-w-4xl px-4 py-12 sm:px-6 lg:px-28 lg:py-16">
       {/* Header */}
       <div className="mb-8 text-center lg:mb-12">
         <div className="mb-4 flex items-center justify-center gap-3">
@@ -37,7 +37,7 @@ export default function FAQAccordion({
             Quick Help
           </h2>
         </div>
-        <h1 className="text-3xl font-bold text-[#153C78] sm:text-4xl lg:text-5xl">
+        <h1 className="text-3xl font-bold text-[#153c78] sm:text-4xl lg:text-5xl">
           Frequently Asked Questions
         </h1>
       </div>
@@ -67,10 +67,10 @@ export default function FAQAccordion({
         </div>
       </div>
 
-      {/* Accordion - 2 columns on large screens */}
-      <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+      {/* Accordion */}
+      <div className="space-y-4">
         {filteredItems.length === 0 ? (
-          <p className="col-span-full py-8 text-center text-gray-500">
+          <p className="py-8 text-center text-gray-500">
             No questions found matching your search.
           </p>
         ) : (
@@ -83,7 +83,7 @@ export default function FAQAccordion({
                 className={`overflow-hidden border transition-all ${
                   isActive
                     ? "border-[#008080] bg-[#008080]/5"
-                    : "border-gray-200 bg-gray-100"
+                    : "border-gray-200 bg-white"
                 }`}
               >
                 <button
