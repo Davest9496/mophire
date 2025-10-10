@@ -117,3 +117,29 @@ export interface FAQItem {
 export interface FAQAccordionProps {
   items: FAQItem[];
 }
+
+export interface PromiseFeature {
+  text: string;
+}
+
+export interface Promise {
+  id: string;
+  icon: string;
+  title: string;
+  description: string;
+  features: PromiseFeature[];
+}
+
+export interface SetApartFeature {
+  id: string;
+  icon: string;
+  title: string;
+  description: string;
+}
+
+export interface QualityStep {
+  id: string;
+  number: string;
+  icon: string;
+  title: string;
+}
