@@ -28,7 +28,6 @@ export default function WhyChooseUsPage(): React.ReactElement {
       <QualityProcess />
       <Testimonials variant="transparent" />
       <CTASection {...ctaContent.whyChooseUs} />
-      {/* Rest of page content */}
     </>
   );
 }

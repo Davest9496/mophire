@@ -34,13 +34,13 @@ export default function WhyChooseUs(): React.ReactElement {
         "We work around your schedule with convenient booking times that fit your busy lifestyle.",
     },
     {
-      icon: "/assets/pages/homepage/icons/towel.png",
+      icon: "/assets/pages/homepage/icons/best-price.svg",
       title: "Transparent Pricing",
       description:
         "No hidden fees or surprises. You'll know exactly what you're paying for with our upfront pricing.",
     },
     {
-      icon: "/assets/pages/homepage/icons/gloves.png",
+      icon: "/assets/pages/homepage/icons/cleaning-liquid.svg",
       title: "Eco-Friendly Options",
       description:
         "Choose from our range of environmentally safe cleaning products for a healthier space.",
