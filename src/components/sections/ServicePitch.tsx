@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function ServicePitch(): React.ReactElement {
   return (
     <section className="bg-white py-16 lg:py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-28 2xl:max-w-none 2xl:px-57">
         <div className="grid items-stretch gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Right Content Section - Stacked on top for mobile */}
           <div className="order-1 flex flex-col gap-6 lg:order-2">

@@ -14,8 +14,8 @@ export default function CTASection({
     <section
       className={`relative w-full overflow-hidden ${
         variant === "detailed"
-          ? "h-[350px] md:h-[200px]"
-          : "h-[300px] md:h-[200px]"
+          ? "h-[350px] md:h-[200px] 2xl:h-[250px]"
+          : "h-[300px] md:h-[200px] 2xl:h-[250px]"
       }`}
     >
       {/* Background Image */}
@@ -29,14 +29,14 @@ export default function CTASection({
       />
 
       {/* Content */}
-      <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col items-center justify-center gap-6 px-6 text-left md:flex-row md:justify-between md:gap-8 lg:px-27">
+      <div className="container relative z-10 mx-auto 2xl:mx-0 flex h-full flex-col items-center justify-center gap-6 px-6 text-left md:flex-row md:justify-between md:gap-8 lg:px-28 2xl:px-57">
         {/* Text Content */}
         <div className="max-w-3xl">
-          <h2 className="mb-3 text-xl font-bold text-white md:mb-4 md:text-2xl lg:text-3xl">
+          <h2 className="mb-3 text-xl font-bold text-white md:mb-4 md:text-2xl lg:text-3xl 2xl:text-4xl">
             {title}
           </h2>
           {description && (
-            <p className="text-sm text-white/90 md:text-base lg:pr-6 lg:text-md">
+            <p className="text-sm text-white/90 md:text-base lg:pr-6 lg:text-md 2xl:text-lg">
               {description}
             </p>
           )}
@@ -45,7 +45,7 @@ export default function CTASection({
         {/* CTA Button */}
         <Link
           href={buttonHref}
-          className="group flex w-full flex-shrink-0 items-center justify-center gap-2 bg-white px-8 py-4 text-base font-semibold text-brand-navy transition-all hover:bg-brand-teal hover:text-white md:w-auto md:text-lg"
+          className="group flex w-full flex-shrink-0 items-center justify-center gap-2 2xl:gap-4 bg-white px-8 py-4 text-base font-semibold text-brand-navy transition-all hover:bg-brand-teal hover:text-white md:w-auto md:text-lg"
         >
           {buttonText}
           <svg

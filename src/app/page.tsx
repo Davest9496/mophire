@@ -20,7 +20,6 @@ export default function Home() {
       <Services />
       <Testimonials />
       <CTASection {...ctaContent.home} />
-      {/* Additional sections will go here */}
     </>
   );
 }

@@ -17,8 +17,8 @@ const quickLinks: FooterLink[] = [
 ];
 
 const serviceLinks: FooterLink[] = [
-  { label: "End Of Tenancy Cleaning", href: "/services/end-of-tenancy" },
-  { label: "Office Cleaning", href: "/services/office-cleaning" },
+  { label: "End Of Tenancy Cleaning", href: "/services/tenancy-cleaning" },
+  { label: "Housekeeping", href: "/services/housekeeping" },
   { label: "Commercial Cleaning", href: "/services/commercial-cleaning" },
 ];
 
@@ -42,7 +42,7 @@ export default function Footer(): React.ReactElement {
 
       {/* Content */}
       <div className="relative text-white">
-        <div className="mx-auto max-w-7xl lg:px-27">
+        <div className="container mx-auto 2xl:ml-0 lg:px-27 2xl:px-57">
           {/* Mobile/Tablet Layout */}
           <div className="grid grid-cols-2 lg:hidden">
             {/* Column 1: Mophire Brand - Full width */}

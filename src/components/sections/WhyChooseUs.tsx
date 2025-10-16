@@ -10,25 +10,25 @@ interface Feature {
 export default function WhyChooseUs(): React.ReactElement {
   const features: Feature[] = [
     {
-      icon: "/assets/pages/homepage/icons/towel.png",
+      icon: "/assets/pages/homepage/icons/duster.svg",
       title: "100% Satisfaction Guarantee",
       description:
         "We stand behind our work. If you're not completely satisfied, we'll make it right at no extra cost.",
     },
     {
-      icon: "/assets/pages/homepage/icons/gloves.png",
+      icon: "/assets/pages/homepage/icons/hand-glove.svg",
       title: "Experienced & Vetted Cleaners",
       description:
         "Our professional team is thoroughly background-checked, trained, and insured for your peace of mind.",
     },
     {
-      icon: "/assets/pages/homepage/icons/towel.png",
+      icon: "/assets/pages/homepage/icons/towel.svg",
       title: "Spotless Results Every Time",
       description:
         "We use proven techniques and quality equipment to deliver consistently exceptional cleaning results.",
     },
     {
-      icon: "/assets/pages/homepage/icons/gloves.png",
+      icon: "/assets/pages/homepage/icons/working-hours.svg",
       title: "Flexible Scheduling",
       description:
         "We work around your schedule with convenient booking times that fit your busy lifestyle.",
@@ -53,7 +53,7 @@ export default function WhyChooseUs(): React.ReactElement {
       <div className="relative mx-auto px-4">
         <div className="grid gap-6 lg:grid-cols-2 lg:gap-4 xl:gap-0">
           {/* Left Column - Content */}
-          <div className="py-16 lg:py-20 xl:py-28 xl:pl-8 2xl:px-0 max-w-7xl">
+          <div className="py-16 lg:py-20 xl:py-28 xl:pl-8 2xl:pl-8 max-w-7xl">
             <div className="flex gap-8">
               {/* Decorative background icon - hidden on small screens */}
               <div className="hidden flex-shrink-0 opacity-90 lg:block">

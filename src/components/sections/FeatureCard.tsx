@@ -12,10 +12,10 @@ export default function FeatureCard({
   description,
 }: FeatureCardProps): React.ReactElement {
   return (
-    <div className="group relative overflow-hidden bg-white p-6 shadow-md transition-all duration-300 hover:shadow-xl">
-      {/* Hover Background Effect */}
+    <div className="relative overflow-hidden bg-white p-6 shadow-xl">
+      {/* Background Effect - Always Visible */}
       <div
-        className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        className="absolute inset-0 opacity-80"
         style={{
           backgroundImage: "url('/assets/pages/homepage/icons/hover.svg')",
           backgroundSize: "cover",
@@ -33,19 +33,15 @@ export default function FeatureCard({
               alt=""
               width={28}
               height={28}
-              className="transition-all duration-300 [filter:brightness(0)_saturate(100%)_invert(15%)_sepia(55%)_saturate(2076%)_hue-rotate(198deg)_brightness(95%)_contrast(94%)] group-hover:[filter:brightness(0)_invert(1)]"
+              className="[filter:brightness(0)_invert(1)]"
             />
           </div>
 
-          <h3 className="text-base font-semibold text-[#153C78] transition-colors duration-300 group-hover:text-white">
-            {title}
-          </h3>
+          <h3 className="text-base font-semibold text-white">{title}</h3>
         </div>
 
         {/* Description */}
-        <p className="text-sm leading-relaxed text-gray-600 transition-colors duration-300 group-hover:text-white">
-          {description}
-        </p>
+        <p className="text-sm leading-relaxed text-white">{description}</p>
       </div>
     </div>
   );

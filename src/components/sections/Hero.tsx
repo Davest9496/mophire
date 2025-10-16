@@ -8,7 +8,7 @@ export function Hero(): React.ReactElement {
     <section className="relative min-h-[600px] overflow-hidden bg-[#0B3980] text-white lg:min-h-[700px]">
       {/* Hexagon Background Shape - All screens */}
       <div
-        className="absolute right-0 top-0 h-[350px] w-[70vw] bg-contain bg-right bg-no-repeat lg:h-full lg:w-[50vw] xl:w-[45vw]"
+        className="pointer-events-none absolute right-0 top-0 h-[350px] w-[70vw] bg-contain bg-right bg-no-repeat lg:h-full lg:w-[50vw] xl:w-[45vw]"
         style={{
           backgroundImage: "url('/assets/pages/homepage/banner/BG-2.png')",
         }}
@@ -16,7 +16,7 @@ export function Hero(): React.ReactElement {
       />
 
       {/* Image - Extends from right viewport edge - All screens */}
-      <div className="absolute right-0 top-0 flex h-[350px] w-[98vw] items-center justify-end lg:h-full lg:w-[50vw] xl:w-[53vw]">
+      <div className="pointer-events-none absolute right-0 top-0 flex h-[350px] w-[98vw] items-center justify-end lg:h-full lg:w-[50vw] xl:w-[53vw]">
         <div className="relative h-[90%] w-full lg:h-[98%] xl:h-[95%]">
           <Image
             src="/assets/pages/homepage/images/Right_Image.png"
@@ -29,9 +29,9 @@ export function Hero(): React.ReactElement {
       </div>
 
       {/* Content Container */}
-      <div className="relative z-10 mx-auto max-w-7xl px-4 py-20 lg:py-42 xl:px-26 2xl:px-0">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 py-20 lg:py-42 xl:px-26 2xl:ml-0 2xl:mr-auto 2xl:pl-57">
         {/* Left Decorative SVGs - All screens now */}
-        <div className="absolute left-4 top-[280px] h-[200px] w-[300px] lg:top-1/2 lg:h-[70%] lg:w-[450px] lg:-translate-y-1/2 xl:left-26 2xl:left-0 xl:w-[500px]">
+        <div className="pointer-events-none absolute left-4 top-[280px] h-[200px] w-[300px] lg:top-1/2 lg:h-[70%] lg:w-[450px] lg:-translate-y-1/2 xl:left-26 xl:w-[500px] 2xl:left-57">
           {/* Vector SVG on the left */}
           <div className="absolute left-0 top-0 h-full w-[50px] lg:w-[80px] xl:w-[100px]">
             <Image
@@ -43,7 +43,7 @@ export function Hero(): React.ReactElement {
           </div>
 
           {/* Elements SVG on the right - with gap */}
-          <div className="absolute left-[80px] top-0 h-full w-[200px] lg:w-[300px] lg:left-[200px] xl:left-[250px] 2xl:left-[350] xl:w-[350px]">
+          <div className="absolute left-[80px] top-0 h-full w-[200px] lg:left-[200px] lg:w-[300px] xl:left-[250px] xl:w-[350px] 2xl:left-[350]">
             <Image
               src="/assets/pages/homepage/banner/Elements.svg"
               alt=""
@@ -58,7 +58,7 @@ export function Hero(): React.ReactElement {
           <div className="h-[250px] w-full lg:hidden" aria-hidden="true" />
 
           {/* Content */}
-          <div>
+          <div className="relative z-20">
             <div className="relative flex items-center gap-3">
               {/* Star Icon */}
               <div className="relative h-10 w-20">
@@ -87,14 +87,14 @@ export function Hero(): React.ReactElement {
             <div className="flex flex-col gap-4 sm:flex-row">
               <Link
                 href="/quote"
-                className="flex items-center justify-center gap-2 bg-white px-8 py-4 text-center font-medium text-[#008080] shadow-lg transition-all hover:bg-gray-50 hover:shadow-xl"
+                className="flex cursor-pointer items-center justify-center gap-2 bg-[#008080] px-8 py-4 text-center font-medium text-white shadow-lg transition-all hover:bg-white hover:text-[#008080] hover:shadow-xl"
               >
                 Get Free Quote
                 <ArrowRight className="h-5 w-5" />
               </Link>
               <Link
                 href="/services"
-                className="flex items-center justify-center gap-2 border-2 border-white px-8 py-4 text-center font-medium text-white transition-all hover:bg-white/10"
+                className="flex cursor-pointer items-center justify-center gap-2 border-2 border-white bg-white px-8 py-4 text-center font-medium text-[#0B3980] transition-all hover:bg-transparent hover:text-white"
               >
                 View Services
                 <ArrowRight className="h-5 w-5" />
