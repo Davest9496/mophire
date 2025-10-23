@@ -15,9 +15,9 @@ const servicesData: Record<string, ServicePageData> = {
     description:
       "Comprehensive cleaning service designed to help tenants get their full deposit back and ensure properties are spotless for new occupants. Our thorough deep clean covers every corner of the property, meeting the strictest landlord and letting agent standards.",
     icon: "/assets/pages/homepage/icons/tenancy_cleaning.svg",
-    image1: "/assets/pages/homepage/images/service2.png",
-    image2: "/assets/pages/homepage/images/service2.png",
-    image3: "/assets/pages/homepage/images/service2.png",
+    image1: "/assets/pages/services/images/eot1.png",
+    image2: "/assets/pages/services/images/eot2.png",
+    image3: "/assets/pages/services/images/eot3.png",
     metaDescription:
       "Professional end of tenancy cleaning services. Get your full deposit back with our comprehensive cleaning solution.",
     ctaContent: { ...ctaContent.tenancyCleaning },

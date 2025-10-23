@@ -16,7 +16,7 @@ export default function PageHero({
         alt={`${title} hero background`}
         fill
         priority
-        className="object-cover"
+        className="object-cover opacity-65"
         sizes="100vw"
       />
 

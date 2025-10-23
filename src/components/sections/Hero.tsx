@@ -22,7 +22,7 @@ export function Hero(): React.ReactElement {
             src="/assets/pages/homepage/images/Right_Image.png"
             alt="A lady cleaning with a smile on her face"
             fill
-            className="object-contain object-right"
+            className="object-contain object-right rounded-tl-[100px] rounded-bl-[100px]"
             priority
           />
         </div>
