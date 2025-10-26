@@ -11,7 +11,6 @@ const quickLinks: FooterLink[] = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
   { label: "Why Choose Us", href: "/why-choose-us" },
-  { label: "Our Blog", href: "/blog" },
   { label: "FAQ", href: "/faq" },
   { label: "Contact Us", href: "/contact" },
 ];

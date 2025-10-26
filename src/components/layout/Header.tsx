@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   Mail,
   Facebook,
@@ -22,6 +23,7 @@ interface NavLink {
 
 export default function Header(): React.ReactElement {
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
+  const pathname = usePathname();
 
   const navLinks: NavLink[] = [
     { label: "Home", href: "/" },
@@ -33,10 +35,10 @@ export default function Header(): React.ReactElement {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 w-full">
+    <header className="fixed left-0 right-0 top-0 z-50 w-full">
       <div className="flex w-full">
         {/* Logo Section - Spans Both Rows */}
-        <div className="hidden lg:flex items-center justify-center bg-white px-4 lg:px-4">
+        <div className="hidden items-center justify-center bg-white px-4 lg:flex lg:px-4">
           <Link href="/">
             <Image
               src="/logo/mophire.png"
@@ -50,12 +52,12 @@ export default function Header(): React.ReactElement {
         </div>
 
         {/* Right Side - Two Rows */}
-        <div className="flex-1 w-full">
+        <div className="w-full flex-1">
           {/* Top Banner - Navy with Teal Slanted Section */}
-          <div className="relative bg-[#153C78] text-white w-full h-12">
+          <div className="relative h-12 w-full bg-[#153C78] text-white">
             {/* Teal Section with Clip Path */}
             <div
-              className="absolute left-0 top-0 h-full bg-[#008080] flex items-center px-4 sm:px-6 lg:px-10"
+              className="absolute left-0 top-0 flex h-full items-center bg-[#008080] px-4 sm:px-6 lg:px-10"
               style={{
                 clipPath:
                   "polygon(0 0, calc(100% - 1rem) 0, 100% 100%, 0 100%)",
@@ -63,37 +65,37 @@ export default function Header(): React.ReactElement {
                 paddingRight: "3rem",
               }}
             >
-              <span className="text-xs sm:text-sm whitespace-nowrap relative z-10">
+              <span className="relative z-10 whitespace-nowrap text-xs sm:text-sm">
                 Professional Cleaning Services in London
               </span>
             </div>
 
             {/* Navy Section - Location and Email */}
-            <div className="absolute right-0 top-0 h-full flex items-center justify-end gap-4 sm:gap-6 lg:gap-8 px-4 sm:px-6 lg:px-8">
+            <div className="absolute right-0 top-0 flex h-full items-center justify-end gap-4 px-4 sm:gap-6 sm:px-6 lg:gap-8 lg:px-8">
               <div className="flex items-center gap-2">
                 <Image
                   src="/assets/header_footer/icons/location.png"
                   alt="Location"
                   width={16}
                   height={20}
-                  className="w-3 h-5 sm:w-4 sm:h-5 flex-shrink-0"
+                  className="h-5 w-3 flex-shrink-0 sm:h-5 sm:w-4"
                 />
-                <span className="text-xs sm:text-sm whitespace-nowrap">
+                <span className="whitespace-nowrap text-xs sm:text-sm">
                   London - UK 🇬🇧
                 </span>
               </div>
               <Link
                 href="mailto:info@mophire.com"
-                className="hidden md:flex border-l pl-8 items-center gap-2 hover:underline"
+                className="hidden items-center gap-2 border-l pl-8 hover:underline md:flex"
               >
                 <Image
                   src="/assets/header_footer/icons/mail.png"
                   alt="Mail"
                   width={20}
                   height={16}
-                  className="w-5 h-4 sm:w-5 sm:h-4 flex-shrink-0"
+                  className="h-4 w-5 flex-shrink-0 sm:h-4 sm:w-5"
                 />
-                <span className="text-xs sm:text-sm whitespace-nowrap">
+                <span className="whitespace-nowrap text-xs sm:text-sm">
                   Email: info@mophire.com
                 </span>
               </Link>
@@ -101,11 +103,11 @@ export default function Header(): React.ReactElement {
           </div>
 
           {/* Main Navigation - White */}
-          <div className="bg-gray-50 shadow-md w-full h-16 lg:h-20">
-            <div className="max-w-full px-4 sm:px-6 lg:px-8 h-full">
-              <div className="flex items-center justify-between h-full gap-4">
+          <div className="h-16 w-full bg-gray-50 shadow-md lg:h-20">
+            <div className="h-full max-w-full px-4 sm:px-6 lg:px-8">
+              <div className="flex h-full items-center justify-between gap-4">
                 {/* Mobile Logo */}
-                <div className="lg:hidden flex-shrink-0">
+                <div className="flex-shrink-0 lg:hidden">
                   <Link href="/">
                     <Image
                       src="/logo/mophire.png"
@@ -119,72 +121,79 @@ export default function Header(): React.ReactElement {
                 </div>
 
                 {/* Desktop Navigation */}
-                <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
-                  {navLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      className="text-[#153C78] hover:text-[#008080] font-medium transition-colors duration-200 text-sm xl:text-base whitespace-nowrap"
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
+                <nav className="hidden items-center gap-6 lg:flex xl:gap-8">
+                  {navLinks.map((link) => {
+                    const isActive = pathname === link.href;
+                    return (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        className={`whitespace-nowrap border-b-2 pb-1 font-medium transition-colors duration-200 text-sm xl:text-base ${
+                          isActive
+                            ? "border-[#008080] text-[#008080]"
+                            : "border-transparent text-[#153C78] hover:text-[#008080]"
+                        }`}
+                      >
+                        {link.label}
+                      </Link>
+                    );
+                  })}
                 </nav>
 
                 {/* Right Section - Social Icons, Search, CTA */}
-                <div className="hidden lg:flex items-center gap-4 xl:gap-6 ml-auto">
+                <div className="ml-auto hidden items-center gap-4 lg:flex xl:gap-6">
                   {/* Social Icons */}
-                  <div className="flex items-center gap-2 xl:gap-3 border-r-2 border-gray-400 pr-4">
+                  <div className="flex items-center gap-2 border-r-2 border-gray-400 pr-4 xl:gap-3">
                     <Link
                       href="https://facebook.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-400 hover:text-gray-500 border-2 rounded-full p-2 bg-white transition-colors duration-200"
+                      className="rounded-full border-2 bg-white p-2 text-gray-400 transition-colors duration-200 hover:text-gray-500"
                       aria-label="Facebook"
                     >
-                      <Facebook className="w-2 h-2 xl:w-3 xl:h-3" />
+                      <Facebook className="h-2 w-2 xl:h-3 xl:w-3" />
                     </Link>
                     <Link
                       href="https://twitter.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-400 hover:text-gray-500 border-2 rounded-full p-2 bg-white transition-colors duration-200"
+                      className="rounded-full border-2 bg-white p-2 text-gray-400 transition-colors duration-200 hover:text-gray-500"
                       aria-label="Twitter"
                     >
-                      <Twitter className="w-2 h-2 xl:w-3 xl:h-3" />
+                      <Twitter className="h-2 w-2 xl:h-3 xl:w-3" />
                     </Link>
                     <Link
                       href="https://instagram.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-400 hover:text-gray-500 border-2 rounded-full p-2 bg-white transition-colors duration-200"
+                      className="rounded-full border-2 bg-white p-2 text-gray-400 transition-colors duration-200 hover:text-gray-500"
                       aria-label="Instagram"
                     >
-                      <Instagram className="w-2 h-2 xl:w-3 xl:h-3" />
+                      <Instagram className="h-2 w-2 xl:h-3 xl:w-3" />
                     </Link>
                     <Link
                       href="https://linkedin.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-400 hover:text-gray-500  border-2 rounded-full p-2 bg-white transition-colors duration-200"
+                      className="rounded-full border-2 bg-white p-2 text-gray-400 transition-colors duration-200 hover:text-gray-500"
                       aria-label="LinkedIn"
                     >
-                      <Linkedin className="w-2 h-2 xl:w-3 xl:h-3" />
+                      <Linkedin className="h-2 w-2 xl:h-3 xl:w-3" />
                     </Link>
                   </div>
 
                   {/* Search Icon */}
                   <button
-                    className="text-gray-400 hover:text-gray-500 transition-colors duration-200"
+                    className="text-gray-400 transition-colors duration-200 hover:text-gray-500"
                     aria-label="Search"
                   >
-                    <Search className="w-4 h-4 xl:w-5 xl:h-5" />
+                    <Search className="h-4 w-4 xl:h-5 xl:w-5" />
                   </button>
 
                   {/* CTA Button */}
                   <Link
                     href="/quote"
-                    className="bg-[#008080] text-white px-4 xl:px-6 py-2 xl:py-2.5 hover:bg-[#006666] transition-colors duration-200 font-medium flex items-center gap-2 text-sm xl:text-base whitespace-nowrap"
+                    className="flex items-center gap-2 bg-[#008080] px-4 py-2 font-medium text-white transition-colors duration-200 hover:bg-[#006666] xl:px-6 xl:py-2.5 text-sm xl:text-base whitespace-nowrap"
                   >
                     FREE QUOTE
                     <ArrowRight className="h-5 w-5" />
@@ -194,14 +203,14 @@ export default function Header(): React.ReactElement {
                 {/* Mobile Menu Button */}
                 <button
                   onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                  className="lg:hidden text-gray-400 hover:text-gray-500 transition-colors duration-200 ml-auto"
+                  className="ml-auto text-gray-400 transition-colors duration-200 hover:text-gray-500 lg:hidden"
                   aria-label="Toggle menu"
                   aria-expanded={mobileMenuOpen}
                 >
                   {mobileMenuOpen ? (
-                    <X className="w-6 h-6" />
+                    <X className="h-6 w-6" />
                   ) : (
-                    <Menu className="w-6 h-6" />
+                    <Menu className="h-6 w-6" />
                   )}
                 </button>
               </div>
@@ -212,65 +221,72 @@ export default function Header(): React.ReactElement {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-t border-gray-200 shadow-lg w-full">
-          <nav className="px-4 py-4 space-y-3">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="block text-gray-400 hover:text-gray-500 font-medium py-2 transition-colors duration-200"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {link.label}
-              </Link>
-            ))}
+        <div className="w-full border-t border-gray-200 bg-white shadow-lg lg:hidden">
+          <nav className="space-y-3 px-4 py-4">
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`block py-2 font-medium transition-colors duration-200 ${
+                    isActive
+                      ? "text-[#008080]"
+                      : "text-gray-400 hover:text-gray-500"
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
 
             {/* Mobile Social Icons */}
-            <div className="flex items-center gap-4 pt-4 border-t border-gray-200">
+            <div className="flex items-center gap-4 border-t border-gray-200 pt-4">
               <Link
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-text-gray-400 hover:text-gray-500 transition-colors duration-200"
+                className="text-gray-400 transition-colors duration-200 hover:text-gray-500"
                 aria-label="Facebook"
               >
-                <Facebook className="w-5 h-5" />
+                <Facebook className="h-5 w-5" />
               </Link>
               <Link
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-gray-500 transition-colors duration-200"
+                className="text-gray-400 transition-colors duration-200 hover:text-gray-500"
                 aria-label="Twitter"
               >
-                <Twitter className="w-5 h-5" />
+                <Twitter className="h-5 w-5" />
               </Link>
               <Link
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-gray-500 transition-colors duration-200"
+                className="text-gray-400 transition-colors duration-200 hover:text-gray-500"
                 aria-label="Instagram"
               >
-                <Instagram className="w-5 h-5" />
+                <Instagram className="h-5 w-5" />
               </Link>
               <Link
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-gray-500 transition-colors duration-200"
+                className="text-gray-400 transition-colors duration-200 hover:text-gray-500"
                 aria-label="LinkedIn"
               >
-                <Linkedin className="w-5 h-5" />
+                <Linkedin className="h-5 w-5" />
               </Link>
             </div>
 
             {/* Mobile Email (visible on mobile only) */}
-            <div className="md:hidden flex items-center gap-2 pt-4 border-t border-gray-200">
-              <Mail className="w-4 h-4 text-[#153C78]" />
+            <div className="flex items-center gap-2 border-t border-gray-200 pt-4 md:hidden">
+              <Mail className="h-4 w-4 text-[#153C78]" />
               <Link
                 href="mailto:info@mophire.com"
-                className="text-[#153C78] hover:text-[#008080] text-sm"
+                className="text-sm text-[#153C78] hover:text-[#008080]"
               >
                 info@mophire.com
               </Link>
@@ -279,9 +295,10 @@ export default function Header(): React.ReactElement {
             {/* Mobile CTA */}
             <Link
               href="/quote"
-              className="block bg-[#008080] text-white px-6 py-3 hover:bg-[#006666] transition-colors duration-200 font-medium text-center mt-4"
+              className="mt-4 block bg-[#008080] px-6 py-3 text-center font-medium text-white transition-colors duration-200 hover:bg-[#006666]"
+              onClick={() => setMobileMenuOpen(false)}
             >
-              <span className="inline-block align-middle mr-2">FREE QUOTE</span>
+              <span className="mr-2 inline-block align-middle">FREE QUOTE</span>
               <span className="inline-block align-middle">
                 <ArrowRight className="h-5 w-5" />
               </span>
