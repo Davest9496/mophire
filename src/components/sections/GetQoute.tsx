@@ -36,7 +36,6 @@ export default function GetQuote(): React.ReactElement {
       [name]: value,
     }));
   };
-
   const handleSubmit = async (
     e: React.FormEvent<HTMLFormElement>,
   ): Promise<void> => {
@@ -45,10 +44,20 @@ export default function GetQuote(): React.ReactElement {
     setSubmitStatus("idle");
 
     try {
-      // TODO: Replace with actual API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const response = await fetch("/api/quote", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-      console.log("Quote form submitted:", formData);
+      const data = (await response.json()) as { error?: string };
+
+      if (!response.ok) {
+        throw new Error(data.error ?? "Failed to submit quote request");
+      }
+
       setSubmitStatus("success");
 
       // Reset form on success
@@ -59,6 +68,11 @@ export default function GetQuote(): React.ReactElement {
         service: "",
         message: "",
       });
+
+      // Auto-hide success message after 5 seconds
+      setTimeout(() => {
+        setSubmitStatus("idle");
+      }, 5000);
     } catch (error) {
       console.error("Error submitting form:", error);
       setSubmitStatus("error");
@@ -242,14 +256,20 @@ export default function GetQuote(): React.ReactElement {
 
             {/* Status Messages */}
             {submitStatus === "success" && (
-              <div className="bg-green-50 p-4 text-center text-green-800">
-                Quote request received! We&apos;ll send you a personalised quote
-                within 24 hours.
+              <div className="rounded-md bg-green-50 p-4 text-center text-green-800">
+                <p className="font-semibold">Quote request received!</p>
+                <p className="mt-1 text-sm">
+                  We&apos;ve sent you a confirmation email and will send you a
+                  personalised quote within 24 hours.
+                </p>
               </div>
             )}
             {submitStatus === "error" && (
-              <div className="bg-red-50 p-4 text-center text-red-800">
-                Failed to submit request. Please try again.
+              <div className="rounded-md bg-red-50 p-4 text-center text-red-800">
+                <p className="font-semibold">Failed to submit request</p>
+                <p className="mt-1 text-sm">
+                  Please try again or contact us directly at info@mophire.com
+                </p>
               </div>
             )}
           </form>

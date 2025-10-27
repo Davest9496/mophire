@@ -34,10 +34,20 @@ export default function ContactMessage(): React.ReactElement {
     setSubmitStatus("idle");
 
     try {
-      // TODO: Replace with actual API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-      console.log("Form submitted:", formData);
+      const data = (await response.json()) as { error?: string };
+
+      if (!response.ok) {
+        throw new Error(data.error ?? "Failed to send message");
+      }
+
       setSubmitStatus("success");
 
       // Reset form on success
@@ -46,6 +56,11 @@ export default function ContactMessage(): React.ReactElement {
         email: "",
         message: "",
       });
+
+      // Auto-hide success message after 5 seconds
+      setTimeout(() => {
+        setSubmitStatus("idle");
+      }, 5000);
     } catch (error) {
       console.error("Error submitting form:", error);
       setSubmitStatus("error");
@@ -171,13 +186,20 @@ export default function ContactMessage(): React.ReactElement {
 
             {/* Status Messages */}
             {submitStatus === "success" && (
-              <div className="bg-green-50 p-4 text-center text-green-800">
-                Message sent successfully! We&apos;ll get back to you soon.
+              <div className="rounded-md bg-green-50 p-4 text-center text-green-800">
+                <p className="font-semibold">Message sent successfully!</p>
+                <p className="mt-1 text-sm">
+                  We&apos;ve sent you a confirmation email and will get back to
+                  you within 24 hours.
+                </p>
               </div>
             )}
             {submitStatus === "error" && (
-              <div className="bg-red-50 p-4 text-center text-red-800">
-                Failed to send message. Please try again.
+              <div className="rounded-md bg-red-50 p-4 text-center text-red-800">
+                <p className="font-semibold">Failed to send message</p>
+                <p className="mt-1 text-sm">
+                  Please try again or contact us directly at info@mophire.com
+                </p>
               </div>
             )}
           </form>

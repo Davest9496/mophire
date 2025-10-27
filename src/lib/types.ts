@@ -143,3 +143,17 @@ export interface QualityStep {
   icon: string;
   title: string;
 }
+
+export interface ContactEmailData {
+  fullName: string;
+  email: string;
+  message: string;
+}
+
+export interface QuoteEmailData {
+  fullName: string;
+  email: string;
+  phone: string;
+  service: string;
+  message: string;
+}
